@@ -1,0 +1,17 @@
+const express=require("express")
+var route=express.Router()
+const user=require("../controllers/user")
+const Middleware=require("../middlewares/test")
+route.get("/user/",user.getManyuser)
+route.get("/user/:id",user.getByIduser)
+route.post("/user/",user.postuser)
+route.put("/user/",user.putManyuser)
+route.put("/user/:id",user.putByIduser)
+route.get("/user/getdata",user.getBymailuser)
+route.delete("/user/",user.deleteManyuser)
+route.delete("/user/:id",user.deleteByIduser)
+route.post("/user/signup/",user.signup)
+route.post("/user/signin/" ,user.signin)
+route.post("/user/me/" ,Middleware,user.me)
+
+module.exports=route
